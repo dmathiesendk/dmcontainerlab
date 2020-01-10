@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["dmcontainerlab.csproj", "dmcontainerlab/"]
+COPY ["dmcontainerlab/dmcontainerlab.csproj", "dmcontainerlab/"]
 RUN dotnet restore "dmcontainerlab/dmcontainerlab.csproj"
 COPY . .
 WORKDIR "/src/dmcontainerlab"
