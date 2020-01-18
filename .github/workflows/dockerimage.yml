@@ -12,3 +12,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: docker build . --file dmcontainerlab/Dockerfile --tag dmcontainerlab:$(date +%s)
+    - name: Push the tagged Docker image
+      run: docker push dmcontainerlab:$(date +%s)
+    - name: Build the latest Docker image
+      run: docker build . --file Dockerfile --tag dmathiesendk/dmcontainerlab:latest
+    - name: Push the latest Docker image
+      run: docker push dmathiesendk/dmcontainerlab:latest
