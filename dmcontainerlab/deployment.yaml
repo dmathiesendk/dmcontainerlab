@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dmcontainerlab
+  namespace: dmcontainerlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dmcontainerlab
+  template:
+    metadata:
+      labels:
+        app: dmcontainerlab
+    spec:
+      containers:
+      - name: dmcontainerlab
+        image: dmathiesendk/dmcontainerlab:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
