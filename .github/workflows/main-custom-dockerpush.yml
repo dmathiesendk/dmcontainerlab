@@ -14,7 +14,7 @@ runs-on: ubuntu-latest
               run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
             - name: Get the version
               id: vars
-              run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+              run: echo ::set-output name=tag::$(date +%s)
             - name: Build the tagged Docker image
               run: docker build . --file dmcontainerlab/Dockerfile --tag dmathiesendk/dmcontainerlab:${{steps.vars.outputs.tag}}
             - name: Push the tagged Docker image
