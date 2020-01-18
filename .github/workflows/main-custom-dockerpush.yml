@@ -15,10 +15,6 @@ jobs:
     - name: Get the version
       id: vars
       run: echo ::set-output name=tag::$(date +%s)
-    - name: Build the tagged Docker image
-      run: docker build . --file dmcontainerlab/Dockerfile --tag dmathiesendk/dmcontainerlab:${{steps.vars.outputs.tag}}
-    - name: Push the tagged Docker image
-      run: docker push dmathiesendk/dmcontainerlab:${{steps.vars.outputs.tag}}
     - name: Build the latest Docker image
       run: docker build . --file dmcontainerlab/Dockerfile --tag dmathiesendk/dmcontainerlab:latest
     - name: Push the latest Docker image
