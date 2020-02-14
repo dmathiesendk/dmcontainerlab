@@ -4,6 +4,13 @@
 <br>
 skønt
 <br>
-<hr><br>
+<hr>
+<br>
 
-050220 - aften efter 20.06
+@{
+    var tid = DateTime.Parse("05/02/2020 20:06")-  DateTime.Now;
+}
+@tid;
+<br />
+Tid siden sidste deploy/commit = @tid.Hours;
+<br /><br />050220 - aften efter 20.06
